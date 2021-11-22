@@ -39,16 +39,14 @@ namespace monogame_demo
             _graphics.PreferredBackBufferHeight = 600;
             _graphics.ApplyChanges();
 
-            _roomTexture = new Texture2D(GraphicsDevice, 100, 100);
-            Generator.GenerateTexture (_roomTexture);
-            _playerTexture = new Texture2D(GraphicsDevice, 10, 10);
-            Generator.GenerateTexture (_playerTexture);
+            _roomTexture = AssetUtils.GenerateTexture(GraphicsDevice, 100, 100);
+            _playerTexture = AssetUtils.GenerateTexture(GraphicsDevice, 10, 10);
 
             _spaceBounds = new Rectangle(0, 0, 800, 600);
 
             BSPNode root =
-                Generator.BinarySpacePartition(_spaceBounds, 0, 10, 50, 200);
-            _partitions = Generator.GetRectanglesList(root);
+                BSPSnippet.BinarySpacePartition(_spaceBounds, 0, 10, 50, 200);
+            _partitions = BSPSnippet.GetRectanglesList(root);
 
             _player = new Player(0, 0, 1);
 

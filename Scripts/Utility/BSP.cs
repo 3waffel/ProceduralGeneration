@@ -5,40 +5,17 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace monogame_demo
 {
-    /// <summary>
-    /// Generator
-    /// </summary>
-    public static class Generator
+    public static class BSPSnippet
     {
         /// <summary>
-        /// Generate a texture for room and player in a computational way
+        /// Binary Space Partition
         /// </summary>
-        /// <param name="texture"></param>
-        public static void GenerateTexture(Texture2D texture)
-        {
-            Color[] data = new Color[texture.Width * texture.Height];
-            for (int x = 0; x < texture.Width; x++)
-            {
-                for (int y = 0; y < texture.Height; y++)
-                {
-                    if (
-                        x == 0 ||
-                        x == texture.Width - 1 ||
-                        y == 0 ||
-                        y == texture.Height - 1
-                    )
-                    {
-                        data[x + y * texture.Width] = Color.Black;
-                    }
-                    else
-                    {
-                        data[x + y * texture.Width] = Color.White;
-                    }
-                }
-            }
-            texture.SetData (data);
-        }
-
+        /// <param name="bounds"></param>
+        /// <param name="seed"></param>
+        /// <param name="maxDepth"></param>
+        /// <param name="minRoomSize"></param>
+        /// <param name="maxRoomSize"></param>
+        /// <returns></returns>
         public static BSPNode
         BinarySpacePartition(
             Rectangle bounds,
@@ -90,6 +67,11 @@ namespace monogame_demo
             return root;
         }
 
+        /// <summary>
+        /// Get the list of rooms from the BSP tree
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
         public static List<Rectangle> GetRectanglesList(BSPNode root)
         {
             List<Rectangle> rectangles = new List<Rectangle>();
