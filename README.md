@@ -1,12 +1,8 @@
-# README
+# Procedural Content Generation
 
 ## CURRENT STATUS
 
-WROTE SOME CODES ON TRIVIAL ROOM GENERATION
-
-## TODO
-
-IMPLEMENT CODES FROM ALGORITHM
+Constantly Pushing Up To Implement Algorithms.  
 
 ## ALGORITHM
 
@@ -26,8 +22,8 @@ IMPLEMENT CODES FROM ALGORITHM
 -   [ ] Settling
 -   [ ] Wang Tiles
 -   [x] Binary Space Partition
-    - ![PCG](./images/monogame_demo_RJuErwfimF.png)
-    - there's some wrong judgements when the player intersects with the rooms.
+    -   There seems some wrong judgements when the player intersects with the rooms (when player goes into room, some rooms that not intersected light up),
+        -   ![BSP](./images/monogame_demo_RJuErwfimF.png)
 -   [ ] Voronoi Diagrams
 -   [ ] Dijkstra Maps
 -   [ ] Tree Mapping
