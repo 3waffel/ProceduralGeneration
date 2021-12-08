@@ -2,7 +2,9 @@
 
 ## CURRENT STATUS
 
-Constantly Pushing Up To Implement Algorithms.  
+Constantly Pushing Up To Implement Algorithms.
+
++ Add a SceneManager (to switch among different algorithms).
 
 ## ALGORITHM
 
@@ -22,8 +24,9 @@ Constantly Pushing Up To Implement Algorithms.
 -   [ ] Settling
 -   [ ] Wang Tiles
 -   [x] Binary Space Partition
+    
+    ![BSP](./images/monogame_demo_RJuErwfimF.png)
     -   There seems some wrong judgements when the player intersects with the rooms (when player goes into room, some rooms that not intersected light up),
-        -   ![BSP](./images/monogame_demo_RJuErwfimF.png)
 -   [ ] Voronoi Diagrams
 -   [ ] Dijkstra Maps
 -   [ ] Tree Mapping

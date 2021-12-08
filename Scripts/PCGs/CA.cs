@@ -9,18 +9,20 @@ namespace monogame_demo
     public static class CASnippet
     {
 
-        public static void InitializeCA()
+        public static void InitializeCA(int width, int height, int seed, int rule, int[] initialState)
         {
 
         }
 
-        public static void UpdateCA()
+        public static void UpdateCA(int width, int height, int rule, int[] currentState, int[] nextState)
         {
+
 
         }
 
-        public static void DrawCA()
+        public static void DrawCA(int width, int height, int[] currentState, SpriteBatch spriteBatch, Texture2D texture)
         {
+
 
         }
 
@@ -43,33 +45,26 @@ namespace monogame_demo
 
             public float PositionX
             {
-                get
-                {
-                    return _positionX;
-                }
-                set
-                {
-                    _positionX = value;
-                }
+                get => _positionX;
+                set => _positionX = value;
             }
 
             public float PositionY
             {
-                get
-                {
-                    return _positionY;
-                }
-                set
-                {
-                    _positionY = value;
-                }
+                get => _positionY;
+                set => _positionY = value;
+            }
+
+            public void UpdateState(int rule, int[] currentState)
+            {
+
             }
 
         }
 
         public class RuleForUpdate
         {
-
+            
         }
 
 

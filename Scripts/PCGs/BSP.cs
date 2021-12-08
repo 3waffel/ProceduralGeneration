@@ -111,38 +111,20 @@ namespace monogame_demo
 
         public BSPNode Left
         {
-            get
-            {
-                return _left;
-            }
-            set
-            {
-                _left = value;
-            }
+            get => _left;
+            set => _left = value;
         }
 
         public BSPNode Right
         {
-            get
-            {
-                return _right;
-            }
-            set
-            {
-                _right = value;
-            }
+            get => _right;
+            set => _right = value;
         }
 
         public Rectangle Rectangle
         {
-            get
-            {
-                return _rectangle;
-            }
-            set
-            {
-                _rectangle = value;
-            }
+            get => _rectangle;
+            set => _rectangle = value;
         }
 
         public void SplitHorizontal(int split)

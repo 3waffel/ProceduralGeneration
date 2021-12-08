@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace monogame_demo
 {
@@ -13,9 +14,11 @@ namespace monogame_demo
 
         protected Rectangle _rectangle;
 
+        Texture2D _texture;
+
         public Room(int x, int y, int w, int h)
         {
-            //rectangle will stop the player
+            //TODO: rectangle will stop the player
             _rectangle = new Rectangle(x, y, w, h);
         }
 
@@ -26,62 +29,32 @@ namespace monogame_demo
 
         public int X
         {
-            get
-            {
-                return _rectangle.X;
-            }
-            set
-            {
-                _rectangle.X = value;
-            }
+            get => _rectangle.X;
+            set => _rectangle.X = value;
         }
 
         public int Y
         {
-            get
-            {
-                return _rectangle.Y;
-            }
-            set
-            {
-                _rectangle.Y = value;
-            }
+            get => _rectangle.Y;
+            set => _rectangle.Y = value;
         }
 
         public int Width
         {
-            get
-            {
-                return _rectangle.Width;
-            }
-            set
-            {
-                _rectangle.Width = value;
-            }
+            get => _rectangle.Width;
+            set => _rectangle.Width = value;
         }
 
         public int Height
         {
-            get
-            {
-                return _rectangle.Height;
-            }
-            set
-            {
-                _rectangle.Height = value;
-            }
+            get => _rectangle.Height;
+            set => _rectangle.Height = value;
         }
 
         public Rectangle Rectangle
         {
-            get
-            {
-                return _rectangle;
-            }
-            set
-            {
-                _rectangle = value;
-            }
+            get => _rectangle;
+            set => _rectangle = value;
         }
     }
 
@@ -96,6 +69,8 @@ namespace monogame_demo
 
         int _speed;
 
+        Texture2D _texture;
+
         public Player(int x, int y, int speed)
         {
             _positionX = x;
@@ -103,46 +78,39 @@ namespace monogame_demo
             _speed = speed;
         }
 
+        public void SetTexture(Texture2D texture)
+        {
+            _texture = texture;
+        }
+
         public int PositionX
         {
-            get
-            {
-                return _positionX;
-            }
-            set
-            {
-                _positionX = value;
-            }
+            get => _positionX;
+            set => _positionX = value;
         }
 
         public int PositionY
         {
-            get
-            {
-                return _positionY;
-            }
-            set
-            {
-                _positionY = value;
-            }
+            get => _positionY;
+            set => _positionY = value;
         }
 
         public int Speed
         {
-            get
-            {
-                return _speed;
-            }
-            set
-            {
-                _speed = value;
-            }
+            get => _speed;
+            set => _speed = value;
         }
 
         public void Move(int x, int y)
         {
             _positionX += x * _speed;
             _positionY += y * _speed;
+        }
+
+        public void Reset()
+        {
+            _positionX = 0;
+            _positionY = 0;
         }
     }
 }

@@ -6,6 +6,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace monogame_demo
 {
+    public enum GameState
+    {
+        Menu,
+        Playing,
+        GameOver
+    }
+
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
@@ -25,6 +32,8 @@ namespace monogame_demo
         private List<Rectangle> _partitions;
 
         private Player _player;
+
+        public SpriteFont Font { get => _font; set => _font = value; }
 
         public Game1()
         {
@@ -56,7 +65,7 @@ namespace monogame_demo
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _font = Content.Load<SpriteFont>("Fonts/SimpleFont");
+            Font = Content.Load<SpriteFont>("Fonts/SimpleFont");
             _simpleEffect = Content.Load<Effect>("Shaders/SimpleShader");
         }
 
@@ -101,6 +110,17 @@ namespace monogame_demo
             {
                 _player.Move(0, 1);
             }
+
+            if (
+                Keyboard.GetState().IsKeyDown(Keys.R) 
+            )
+            {
+                int seed = (int)DateTime.Now.Ticks;
+                _player.Reset();
+                _partitions = BSPSnippet.GetRectanglesList(
+                    BSPSnippet.BinarySpacePartition(_spaceBounds, seed, 10, 50, 200)
+                );
+            }
         }
 
         protected override void Draw(GameTime gameTime)
@@ -135,14 +155,18 @@ namespace monogame_demo
                 Color.Coral);
             _spriteBatch.End();
 
-            _spriteBatch.Begin();
-
             // Draw count of the partitions
+            _spriteBatch.Begin();
             _spriteBatch
-                .DrawString(_font,
+                .DrawString(Font,
                 _partitions.Count.ToString(),
                 new Vector2(10, 10),
                 Color.Black);
+            _spriteBatch.DrawString(Font,
+                "Press R to refresh the partitions",
+                new Vector2(50, 10),
+                Color.Black);
+
             _spriteBatch.End();
 
             base.Draw(gameTime);
